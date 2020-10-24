@@ -1,0 +1,130 @@
+##1. What is Node js ?
+--> Its Open Source Server Enviornment and Usees Java Script on Server.
+
+
+**Node js uses Asynchronus programming : Because it eliminates the waiting time , and continuous with next request.
+**It runs single threaded , non blocking and is memory efficient.
+
+##How node js works:
+1. send the task to computer file system.
+2. Ready to Handle next request
+3. When file system has opened file and read it , server will send content to client.
+
+##What it can Do --> 
+1.read, write, delete , and close files in server. also can generate dynamic pages.
+2.add, delete , modify data into database.
+
+##what is node.js file??
+--> it contains Task which are generated on the specific event	.
+--> node.js must be initiated on the server before having any effect.
+
+
+##What are modules in node js ??
+--> We can consider modules same as the javascript libraries , or a set of functions you want to include in your application.
+
+##Some built in modules in nodejs are :
+http : to serve nodejs as http server
+path : to habdle the file path
+More ex. : https://www.w3schools.com/nodejs/ref_modules.asp
+
+
+##How to include the module :
+we can use require function to include the module 
+--> For ex : var httpserver = require('http');
+
+##How to Create Our Own Modules :
+
+For eg : Creating the Module which return current date and time of system
+--  exports.myDateTime = function(){
+    return Date();      //Date is the Inbuilt Function in nodejs
+}
+
+//exports is used becuase we have to access this module outside into the other fiiles or module file.
+
+
+
+##Built In HTTP module :
+node.js has bulit in module called HTTP , which allows node.js to tranfer data over HTTP server protocol. To inlcude MOdule use require().
+For Eg : var a = require('http');
+
+
+##To use Node.js As a web Server :
+The HTTP module can create an HTTP server that listens to server ports and give response back to client.
+For this we can usee the Create Server Method ; createServer();
+
+
+## TO Add the HTTP Header :
+If the Response from the sever suposed to displayed in HTML , We should Include HTTP header with correct Content Type.
+For Eg : res.writeHead(200,{'content-Type' : 'Text/html'});
+
+req : parameter is parameter that the client has requested to the server . It include the property called URL which gives the URL name after Domain Name.
+
+##Split the Quesry From URL Side:
+THere are inbulit module to split the query string from URL that is URL module so we would be requiring that module.
+
+
+##Node Js As File Server:
+The nodejs file system allows us to work with the file system on our computer.
+To import module we have to use the require();
+for eg : var fs = require('fs');
+
+##Commom Use Of file Syatems : 
+1. read , write , create , update , delete , rename 
+
+1. To read The files in Node js : fs.readFile() to read file from computer 
+We would do example which would re reading HTML File from Computer System as example.
+
+2. To create the File using node js :
+    fs.appendFile(); - to wrtite after the content already exist , if file not exist it will create it and the wtrite to file
+    fs.open(); - to open file in write or empty mode depend on the flag in the parameter.
+    fs.writeFile(); - to write the content into the file and replaced the previous content if already exists.
+
+3. To delte the File From Comnputer Using nodejs use :
+    fs.unlink();
+
+4. to rename the file : 
+    fs.rename();  //@params : initial File name , file name to be rename , function of error handling
+
+
+##Bulit In URL Module (Advanced Topics):
+--- url.parse() : - Parse an address with the url.parse() method.  and will return URL object with each part of the Address Properties
+Demo is availabe ib  Demo_URLModule.js  
+Some Function in URL are : Pathname , host and search
+
+
+##Node.js NPM :
+Npm is package manager for the modules for node.js packages
+
+##What is Package??
+-- A package in node.js is conatins all the files you need for the mpodule.
+Modules are javascript libraries we can include in our project.
+
+## TO Download a Package From NPM:
+npm install 'upper-case'  -- name of the package is in the single qoutes , we have to wtrite command without qotes.
+
+## How to use the NPM pacakges :
+we can use same as we were using modules , by using the require() method.
+For Eg : Dem_npm_upper_case.js is the Demo File
+
+
+##Node.js Events:
+--Every action on a computer is like the event , like connection is made or file is opened
+--objects in nodejs can fire the events , like readstream objects fires event whern opening and closing file;
+eg is shown in Demo_events_read_openFile.js
+
+##Event Module in Nodejs inbuilt Functions :
+--node js has inbuluit event where we can create , fire and listen for -your events
+-- all event Properties and method are an instance of an EventEmitter object. To be able to access the properties and methods 
+we have to create EventEmitter object.
+We can see the example in file Demo_Event_Emmoiter_Object.js file.
+
+##Node Js To upload the File in the server:
+
+The Formidable Module is required to doing the Uploading of the Files 
+the example of the upload is in the file Demo_formidable.js
+--In this file we would be uploading the file from the computer system in node.js
+
+
+##Node Js sending the mail using nodemailer module:
+--this module makes easy toi send the mail from the computer.
+--How to send the email is shown in thew example of file : Demo_nodeMailer.js
