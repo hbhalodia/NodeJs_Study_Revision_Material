@@ -129,6 +129,8 @@ the example of the upload is in the file Demo_formidable.js
 --this module makes easy toi send the mail from the computer.
 --How to send the email is shown in thew example of file : Demo_nodeMailer.js
 
+
+-------------------------------------------------------------NodeJs With MYSQL------------------------------------------------------------
 ##Node Js Connecting With Mysql::
 -->To connect with the mysql we have to require to download mysql module from npm and require in our node.js file
 
@@ -162,3 +164,99 @@ on executiong the query at run time question mark would be replaced by the array
 how to do : con.query(sql,[values],function(err,result){
     console.log(result.affectedRows);       //it would return the how many rows inserted
 });
+
+
+##THE result object in the con.query parameter :
+it consist of the 
+{
+    fieldCount: 0,
+    affectedRows: 14,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '\'Records:14  Duplicated: 0  Warnings: 0',
+    protocol41: true,
+    changedRows: 0
+}
+
+to get the insertid if one row is inserted then we would get that id. if multiple rows are inserted then we cant get that but ID would be 
+incremented as the records are inserted.
+
+
+##Select From Conditions in the MysqlNode js :
+for the select query we have to write the query which we afre writing in the sql , but the result would be stored as an object in 
+the parasmeter calleld result.
+
+fields Object the third parameter in the callback function:
+--the filed function would have as an object and conatins the details of all the columns which are passed in select statement.
+
+##Where Condition in in SQL using Nodejs:
+we have to write only the concept of the mysql query else the nodejs part remians the same for all;
+the parameter result will have all the data inside it of the select query.
+
+##WildCard Characters we can also used in the node js while using mysql database such as :
+like keyword in that  '%' or '_' etc can be used , 
+the above two are used in the exaple file as demo_select_where_query.js
+
+
+##Escaping the Query values :
+When query values are provided by the users we have to escape that value.
+mysql has the method to escape the query. --> mysql.escape();
+example demo is Demo_escape_mysql_query.js
+
+-- We can also use the '?' to escape the values.
+for ex : var sql = "select * from customers where address = ? ";
+
+while executing the query using the con.query function we have to pass the variable in which we had store the value of address
+for eg : con.query(sql , [adr] , function(err,result){
+
+});
+
+-- if want to use multiple place holders we can use it like below:
+--var sql = "select * from customers where name = ? and address = ?" 
+.for eg : con.query(sql,[name,adr],function(err,result){
+
+});
+
+
+##Order By cluase using the Nodejs :
+the order by clause is same as we had learnt in mysql the implementation is same as the previous where and select statement
+for eg shown in Ddemo_Order_By.js
+
+
+##Delete the particular record from the table\:
+the query is same as we were writing in the sql and implementation is also same as we hade seen for select conditon.
+for Eg see the Demo_Delete_query.js
+result object has the parameter which tells us how many rowws have been affected by the query its either insert , delete , or update
+
+
+##Drop the table Query:
+--Droping of table query is same whichi we were writing in the sql.
+for exampole see the Demo_Drop_Table.js
+
+
+##Update the Record in the mysql using Nodejs :
+--> Update is the same query which we write in the SQL ,
+for exmaple see the implementation in Demo_Update_Query.js
+
+
+##Limit the record :
+--> in sql we can limit the  number of records by using the LIMIT Funcrtion in SQL query\
+For example see the Example Demo_Limit_Query.js
+
+--Now what if we dont want first 5 we want the after 3 records we want 5 records
+so that SQL HAS offset function which can be implemeted after the limit or
+in short way we can directly put , and put the start index.
+
+the offset indicate after this position we have to take 5 record means start from 3 to take not 2.
+
+
+##Join in Mysql using NodeJs:
+this the syntx to join remains the same as we have in sql.
+For implemetation see the Demo_Join_query.js
+
+We can include all the types of the join in Nodejs , left , right join etc.
+--Just we have knowledge of SQL statement and queries.
+
+-------------------------------------------------------------NodeJs With MongoDB------------------------------------------------------------
+
