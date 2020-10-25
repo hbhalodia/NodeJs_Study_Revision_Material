@@ -128,3 +128,37 @@ the example of the upload is in the file Demo_formidable.js
 ##Node Js sending the mail using nodemailer module:
 --this module makes easy toi send the mail from the computer.
 --How to send the email is shown in thew example of file : Demo_nodeMailer.js
+
+##Node Js Connecting With Mysql::
+-->To connect with the mysql we have to require to download mysql module from npm and require in our node.js file
+
+After require the module we haver to connect with the database.
+to connect with it we use createConnection() function shown in Demo_Mysql_connection.
+
+##After this as we have connected to the Database we can start now querying from nodejs to mysql.
+con.query(sql,function(err,result)); --> Function tajes two aeguemnts as parameter
+@param1 : sql variable in which the query is written
+@param2 : function with error and result handling , if perfectly executed query result will store in 'result' else err will throw error.
+
+
+##How to create the Database using Node.js:
+we have to fire the sql query for the same to create database in con.query function;
+
+##How to Create the Table using the NODEjs :
+we have to fire the query for same in the con.query function as parameter.
+demo is shown in Demo_createTable.js
+
+##How to Create Primary while Creating the Table :
+Eg Demo shhown in Demo_primary_Key_table.js
+
+##How to insert the values into the table.
+Foir that we have to fire the query for insert shown in example Demo_insertquery.js
+
+---What if we want to insert multiple records at same time??
+-- for that we can use array and pass to the sql statement how?? see example Demo_insertquery.js
+--to insert more than one record make an array conatining of the records and insert a question mark at last of the sql query
+just like sql_query="INSERT INTO (name ,address) customers VALUES ?";
+on executiong the query at run time question mark would be replaced by the array values;
+how to do : con.query(sql,[values],function(err,result){
+    console.log(result.affectedRows);       //it would return the how many rows inserted
+});
